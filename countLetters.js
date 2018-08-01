@@ -1,19 +1,17 @@
 var str = String(process.argv.slice(2));
-console.log(str);
-var n = [];
+var myObject = {};
 
-for (var i = 0; i < str.length; i++) {
-  n.push(/[a-z]/.exec(str)[i]);
+function countLetters(str) {
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] == " " || str[i] === ",") {
+      //check for empty spaces and commas
+    } else if (myObject[str[i]] == undefined) {
+      myObject[str[i]] = 1;
+    } else {
+      myObject[str[i]] += 1;
+    }
+  }
+  return myObject;
 }
 
-console.log(n);
-
-// var letters = {
-//   a: "1",
-//   b: "2",
-// }
-
-// countLetters();
-// function countLetters(str){
-//   console.log(n);
-// }
+console.log(countLetters(str));
